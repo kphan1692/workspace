@@ -1,10 +1,28 @@
 <!-- your HTML file: -->
 <head>
-    <script src="js-file.js" defer></script>
-  </head>
+  <script src="script.js" defer></script>
+</head>
 
-  
 <body>
-    <h1>THE TITLE OF YOUR WEBPAGE</h1>
-    <div id="container"></div>
-  </body>
+  <h1>DOM Manipulation</h1>
+  <div id="container"></div>
+  <div>
+    <!-- METHOD 1 -->
+    <button id="btn0" onclick="alertFunction()">CLICK ME BABY</button>
+    <!-- METHOD 2 -->
+    <button id="btn1">Click Me</button>
+    <!-- METHOD 3 -->
+    <button id="btn2">Click Me Too</button>
+
+    <!--access more information about the event by passing a parameter-->
+    <button id="btn3">Passing param</button>
+
+    <!--Attaching listeners to groups of nodes-->
+
+    <div id="listeners_constainer">
+      <button id="one">Click Me</button>
+      <button id="two">Click Me</button>
+      <button id="three">Click Me</button>
+    </div>
+  </div>
+</body>

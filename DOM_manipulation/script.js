@@ -3,6 +3,9 @@
 creates a new div element, adds a class "content" to it, sets its text content to "This is the
 glorious text-content!", and finally appends this new div element as a child of the selected
 container element. */
+
+
+
 const container = document.querySelector("#container");
 
 const content = document.createElement("div");

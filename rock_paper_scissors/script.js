@@ -55,6 +55,8 @@ function playRound(humanChoice, computerChoice) {
 //************************************* */
 let result = "test";
 const buttons = document.querySelectorAll("button");
+let announce = "";
+
 buttons.forEach((button) => {
   // and for each one we add a 'click' listener
   button.addEventListener("click", () => {
@@ -66,60 +68,38 @@ buttons.forEach((button) => {
       : 0;
 
     let computerChoice = getComputerChoice();
-    result = playRound(humanChoice, computerChoice);
-    //Updating score
+    gameResult = playRound(humanChoice, computerChoice);
+
+    //Announce Winner
+
+    if (humanScore == 5) {
+      announce = "Human Won!!!! Reset Game";
+      scoreReset();
+    }
+    if (computerScore == 5) {
+      announce = "Computer Won!!!! Reset Game";
+      scoreReset();
+    }
+    //Updating score using DOM Manipulation
     document.getElementById("result_div").innerText =
-      "Computer Score: " + computerScore + "\nHuman Score: " + humanScore;
-      
- //Push log after each turn
-  const log_div = document.querySelector("#log_div");
-  const log_content = document.createElement("div");
-  log_content.classList.add("log_content");
-  log_content.textContent = result;
-  log_div.appendChild(log_content);
-    
-  });
+      "Computer Score: " +
+      computerScore +
+      "\nHuman Score: " +
+      humanScore +
+      "\n" +
+      announce;
 
- 
-});
+    //Push log after each turn
+    const log_div = document.querySelector("#log_div");
+    const log_content = document.createElement("div");
+    log_content.classList.add("log_content");
+    log_content.textContent = gameResult;
+    log_div.appendChild(log_content);
+  }); //addEventListener
+}); //forEach
 
-//************************************ */
-//DISPLAYING RESULT USING DOM MANIP
-//************************************* */
-
-function playGame() {
-  let humanChoice = getHumanChoice();
-  let computerChoice = getComputerChoice();
-  playRound(humanChoice, computerChoice);
-
-  console.log(
-    "Computer Score: " + computerScore + "\nHuman Score: " + humanScore
-  );
-
-  if (computerScore == humanScore)
-    console.log(
-      "You both win!!!" +
-        "\nOverall, Computer Score: " +
-        computerScore +
-        "\nHuman Score: " +
-        humanScore
-    );
-  if (computerScore > humanScore)
-    console.log(
-      "Computer Won!!!" +
-        "\nOverall, Computer Score: " +
-        computerScore +
-        "\nHuman Score: " +
-        humanScore
-    );
-  if (computerScore < humanScore)
-    console.log(
-      "You Won!!!" +
-        "\nOverall, Computer Score: " +
-        computerScore +
-        "\nHuman Score: " +
-        humanScore
-    );
-} //playGame()
-
-//playGame();
+//reset function
+function scoreReset() {
+  humanScore = 0;
+  computerScore = 0;
+}

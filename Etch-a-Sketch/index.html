@@ -1,3 +1,11 @@
+<!-- This pseudocode represents the CSS styling rules where:
+The container class creates a flex container that's 400x400 pixels with a black border
+The grid-item class defines each grid cell to:
+Take up 1/16th of the container width (creating 16 columns)
+Include borders in size calculations
+Have a thin gray border
+Maintain a 1:1 aspect ratio (square shape) -->
+<!-- 
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,13 +17,13 @@
       .container {
         display: flex;
         flex-wrap: wrap;
-        width: 400px;
-        height: 400px;
+        width: 960px;
+        height: 960px;
         border: 1px solid #000;
       }
 
       .grid-item {
-        flex-basis: calc(100% / 16);
+        flex-basis: calc(100% / 24);
         box-sizing: border-box;
         border: 1px solid #ccc;
         aspect-ratio: 1;
@@ -23,6 +31,44 @@
     </style>
   </head>
   <body>
+    <button id="setBtn">Set Size</button>
     <div class="container"></div>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Grid</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 20px;
+      }
+
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 960px; /* Total width for the grid */
+      }
+
+      .square {
+        width: 60px; /* Size of each square */
+        height: 60px; /* Size of each square */
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        transition: background-color 0.3s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="grid-container"></div>
+    <button id="resize-button">Resize Grid</button>
+    <script src="script.js"></script>
   </body>
 </html>

@@ -1,3 +1,74 @@
+<!-- BEGIN
+
+    // HTML Structure
+    // Create a container for the grid
+    CREATE a DIV with class "container" and id "grid-container"
+    
+    // Create a button for resizing the grid
+    CREATE a BUTTON with id "resize-button" labeled "Resize Grid"
+    
+    // Link CSS and JavaScript files
+    LINK to "styles.css"
+    LINK to "script.js"
+
+    // END HTML structure
+
+    // CSS Styles
+    SET body styles:
+        DISPLAY flex
+        SET flex-direction to column
+        ALIGN items to center
+        SET margin and padding to 0 and 20px respectively
+
+    SET container styles:
+        DISPLAY flex
+        SET flex-wrap to wrap
+        SET width to 960px
+
+    SET square styles:
+        SET width and height to 60px
+        ADD border and box-sizing properties
+        ADD transition for background color
+
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamid Grid</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 20px;
+      }
+
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 960px;
+      }
+
+      .square {
+        width: 60px;
+        height: 60px;
+        border: 1px solid #5e4545;
+        box-sizing: border-box;
+        transition: background-color 0.3s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="grid-container"></div>
+    <button class="button" id="resize-button">Resize Grid</button>
+    <script src="script.js"></script>
+  </body>
+</html>
+
 <!-- This pseudocode represents the CSS styling rules where:
 The container class creates a flex container that's 400x400 pixels with a black border
 The grid-item class defines each grid cell to:
@@ -35,40 +106,3 @@ Maintain a 1:1 aspect ratio (square shape) -->
     <div class="container"></div>
   </body>
 </html> -->
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dynamic Grid</title>
-    <style>
-      body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 0;
-        padding: 20px;
-      }
-
-      .container {
-        display: flex;
-        flex-wrap: wrap;
-        width: 960px; /* Total width for the grid */
-      }
-
-      .square {
-        width: 60px; /* Size of each square */
-        height: 60px; /* Size of each square */
-        border: 1px solid #ccc;
-        box-sizing: border-box;
-        transition: background-color 0.3s;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container" id="grid-container"></div>
-    <button id="resize-button">Resize Grid</button>
-    <script src="script.js"></script>
-  </body>
-</html>

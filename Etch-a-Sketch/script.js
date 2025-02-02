@@ -44,7 +44,7 @@ function createGrid(size) {
 
     //Add hover effect
     square.addEventListener("mouseenter", () => {
-      square.style.backgroundColor = "#3498db";
+      square.style.backgroundColor = getRandomColor();
     });
 
     container.appendChild(square);
@@ -52,6 +52,15 @@ function createGrid(size) {
 }
 // Initial grid creation
 createGrid(16);
+
+function getRandomColor() {
+  var letters = "0123456789ABCDEF";
+  var color = "#";
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
 
 // Resize grid on button click
 button.addEventListener("click", () => {
